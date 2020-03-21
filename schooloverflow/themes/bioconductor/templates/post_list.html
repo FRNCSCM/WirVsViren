@@ -1,0 +1,51 @@
+{% extends "forum_list.html" %}
+{% load forum_tags %}
+{% load humanize %}
+{% load cache %}
+
+{% block headtitle %}
+    Biostar Forum
+{% endblock %}
+
+
+{% block body %}
+    <div class="ui horizontal basic top-menu segments">
+        {% filter_dropdown %}
+
+        {% block search %}
+            {% search_bar %}
+        {% endblock %}
+
+    </div>
+
+    {% if tag %}
+        <div class="ui blue filter message">
+            Showing : <code>{{ tag }}</code> &bull; <a href="{% url 'post_list' %}">reset <i
+                class="undo small icon"></i></a>
+        </div>
+    {% endif %}
+
+    {% listing posts=posts show_subs=False %}
+
+    <div class="ui horizontal basic top-menu segments">
+        <div class="ui page-bar segment">
+            {% pages objs=posts %}
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block sidebar %}
+    {% cache 60 sidebar %}
+        {% if tab == 'following' %}
+            {% custom_feed feed_type=tab objs=posts title='People you are following' %}
+        {% elif tab == 'bookmarks' %}
+            {% custom_feed feed_type=tab objs=posts title='People you have bookmarked' %}
+        {% else %}
+            {% default_feed user=request.user %}
+        {% endif %}
+    {% endcache %}
+
+
+{% endblock %}
+

@@ -1,0 +1,19 @@
+{% extends "base_listing.html" %}
+{% load engine_tags %}
+
+{% block headtitle %}
+    Project List
+{% endblock %}
+
+{% block title %}
+    <i class="download icon"></i> Data Import
+{% endblock %}
+
+
+{% block content %}
+
+    {% show_messages messages %}
+
+    {% include 'widgets/files_list.html' %}
+
+{% endblock %}

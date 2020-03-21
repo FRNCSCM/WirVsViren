@@ -1,0 +1,49 @@
+{% load static %}
+{% load engine_tags %}
+
+
+<div class="item recipe" data-value="{{ recipe.uid }}" >
+
+    <img class="ui mytiny rounded fancy image" src="{% img recipe %}">
+    <div class="content">
+        <a class="subheader" href="{% url 'recipe_view' recipe.uid %}">
+            {% if recipe.is_cloned %}
+                <i class="linkify icon"></i>
+            {% else %}
+                <i class="setting icon"></i>
+            {% endif %}
+            {{ recipe.name }}
+        </a>
+
+        <div class="meta">
+            {{ recipe.summary |markdown |truncatechars_html:100 }}
+        </div>
+
+        <div class="extra">
+            <a
+                href="{% url 'job_list' project.uid %}?filter={{ recipe.uid }}">
+
+            <i class="bar chart icon"></i> {{ recipe.job_count }}
+            result{{ recipe.job_count|pluralize }}</a>
+            &bull; {% created_by date=recipe.lastedit_date user=recipe.lastedit_user %}
+
+            {% if not recipe.runnable %}
+                &bull; needs authorization
+            {% endif %}
+
+        </div>
+    </div>
+    {% if user.is_authenticated %}
+        <div class="ui mini buttons">
+            <a class="ui right copy button">
+                <i class="copy icon"></i>Copy
+            </a>
+            <div class="or"></div>
+            <a class="ui right button " href="{% url 'recipe_delete' recipe.uid %}">
+                <i class="trash icon"></i> <span class="fitme">Delete</span>
+            </a>
+
+        </div>
+
+    {% endif %}
+</div>

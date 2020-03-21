@@ -1,0 +1,44 @@
+{% extends "forum_base.html" %}
+{% load forum_tags %}
+{% load accounts_tags %}
+{% load humanize %}
+
+{% block headtitle %}
+    Community
+{% endblock %}
+
+
+{% block content %}
+
+    {% search_bar users=True %}
+
+    {% if query %}
+        <div class="ui message"><i class="search icon"></i>Searching for users containing: <b>{{ query }}</b></div>
+    {% endif %}
+
+
+    <div class="ui horizontal basic top-menu segments">
+        {% user_filter_dropdown %}
+    </div>
+
+    <div class="ui basic segment">
+
+        <div class="ui six column grid">
+            {% for target in users %}
+
+                <div class="column">
+                    {% user_card target %}
+                </div>
+
+            {% endfor %}
+        </div>
+
+    </div>
+
+    <div class="ui horizontal basic top-menu segments">
+        <div class="ui page-bar segment">
+            {% pages objs=users %}
+        </div>
+    </div>
+
+{% endblock %}
