@@ -72,11 +72,12 @@ class Post(models.Model):
 
     # Question types. Answers should be listed before comments.
     # QUESTION, ANSWER, JOB, FORUM, PAGE, BLOG, COMMENT, DATA, TUTORIAL, BOARD, TOOL, NEWS = range(12)
-    UNTERRICHT, RECHERCHE, FRAGE = range(3)
+    UNTERRICHT, RECHERCHE, FRAGE,  COMMENT, ANSWER = range(5)
 
     # Valid post types.
     TYPE_CHOICES = [
-        (UNTERRICHT, "Unterricht"), (RECHERCHE, "Recherche"), (FRAGE, "Frage")
+        (UNTERRICHT, "Unterricht"), (RECHERCHE, "Recherche"), (FRAGE, "Frage"),
+        (COMMENT, "Antwort"), (ANSWER, "Answer")
         # (QUESTION, "Question"), (ANSWER, "Answer"), (COMMENT, "Comment"),
         # (JOB, "Job"), (FORUM, "Forum"), (TUTORIAL, "Tutorial"),
         # (DATA, "Data"), (PAGE, "Page"), (TOOL, "Tool"), (NEWS, "News"),

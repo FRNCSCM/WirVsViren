@@ -672,18 +672,24 @@ def bignum(number):
 def post_boxclass(root_type, answer_count, root_has_accepted):
 
     # Create the css class for each row
-    if root_type == Post.JOB:
-        style = "job"
-    elif root_type == Post.TUTORIAL:
-        style = "tutorial"
-    elif root_type == Post.TOOL:
-        style = "tool"
-    elif root_type == Post.FORUM:
-        style = "forum"
-    elif root_type == Post.NEWS:
-        style = "news"
+    # if root_type == Post.JOB:
+    #     style = "job"
+    # elif root_type == Post.TUTORIAL:
+    #     style = "tutorial"
+    # elif root_type == Post.TOOL:
+    #     style = "tool"
+    # elif root_type == Post.FORUM:
+    #     style = "forum"
+    # elif root_type == Post.NEWS:
+    #     style = "news"
+    # else:
+    #     style = "question"
+    if root_type == Post.UNTERRICHT:
+        style = "Unterricht"
+    elif root_type == Post.RECHERCHE:
+        style = "Recherche"
     else:
-        style = "question"
+        style = "Frage"
 
     if isinstance(answer_count, int) and int(answer_count) > 1:
         style += " has_answers"
