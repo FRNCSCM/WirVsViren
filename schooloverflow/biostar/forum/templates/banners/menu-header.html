@@ -5,33 +5,33 @@
 
     {% block headimg %}
         <div class="header item" id="logo">
-            <a href="/"><img class="ui image" src="{% static "images/brain.png" %}"></a>
+            <a href="/"><img class="ui image" width="40%" src="{% static "images/brain.png" %}"></a>
         </div>
     {% endblock %}
 
     <a class="item {% activate tab "latest" %} " href="{% url 'post_list' %}">
-        <i class="list icon"></i> Latest
+        <i class="list icon"></i> Aktuell
     </a>
 
     <div class="ui simple dropdown item {#% activate tab "tags,news,job,tutorial,forum" %#}">
-        <i class="arrow alternate circle down icon"></i>
-        Topics
+        <i class="book icon"></i>
+        Inhalte
         <div class="menu">
             <a class="item {% activate tab "tags" %} " href="{% url 'tags_list' %}">
                 <i class="tag icon"></i> Tags
             </a>
 
             <a class="item {% activate tab "news" %} " href="{% url 'post_list' %}?type=news">
-                <i class="newspaper icon"></i> News
+                <i class="print icon"></i> Unterricht
             </a>
-            <a class="item {% activate tab "job" %} " href="{% url 'post_list' %}?type=job">
-                <i class="briefcase icon"></i> Jobs
-            </a>
+            <!-- <a class="item {% activate tab "job" %} " href="{% url 'post_list' %}?type=job">
+                <i class="briefcase icon"></i> Fragen
+            </a> -->
             <a class="item {% activate tab "tutorial" %} " href="{% url 'post_list' %}?type=tutorial">
-                <i class="help circle icon"></i> Tutorials
+                <i class="search icon"></i> Recherche
             </a>
             <a class="item {% activate tab "forum" %} " href="{% url 'post_list' %}?type=forum">
-                <i class="file icon"></i> Forum
+                <i class="help circle icon"></i> Fragen
             </a>
 
         </div>
