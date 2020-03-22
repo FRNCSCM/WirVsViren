@@ -1,0 +1,70 @@
+{% extends "base_listing.html" %}
+{% load engine_tags %}
+{% load static %}
+
+{% block headtitle %}
+    Bioinformatics Recipes
+{% endblock %}
+
+{% block title %}
+    <i class="barcode icon"></i> Welcome to Bioinformatics Recipes
+{% endblock %}
+
+{% block content %}
+
+    <div class="ui grid">
+        <div class="ten wide column home">
+            <div class="ui relaxed divided list questions">
+
+                <div class="item padme">
+                    <div class="subheader">What is a recipe?</div>
+                    <div class="description">
+                        A "bioinformatics recipe" is a collection of commands used to perform a
+                        bioinformatics data analysis task. A recipe can be thought
+                        of as a <em>bioinformatics workflow</em> or a <em>bioinformatics pipeline</em>.
+                    </div>
+                </div>
+
+                <div class="item padme">
+                    <div class="subheader">What types of recipes can I find here?</div>
+                    <div class="description">
+                        Most recipes demonstrate typical use cases for various bioinformatics tools.
+                        Many recipes have been developed to support bioinformatics education.
+                    </div>
+                </div>
+
+                <div class="item padme ">
+                    <div class="subheader">Can I run recipes on my computer?</div>
+                    <div class="description">
+                        Yes! All recipes are designed to run both through this website and at the command line on
+                        your computer.
+                    </div>
+                </div>
+
+                <div class="item padme ">
+                    <div class="subheader">Where can I learn more of how the site works?</div>
+                    <div class="description">
+                        Site documentation at <a
+                    href="https://bioinformatics-recipes.readthedocs.io/"><i
+                    class="book icon"></i>Biostar
+                        Recipes: Read The Docs</a>.
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="six wide center column">
+            <div class="ui center aligned basic segment">
+                <a href="{% url "latest_recipes" %}">
+                    <img class="ui medium rounded  image"
+                         src="{% static 'images/screenshot.jpg' %}">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+{% endblock %}

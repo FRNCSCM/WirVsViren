@@ -1,0 +1,15 @@
+django==3.0.4
+mailer==0.8.1
+django-compressor==2.4
+django-taggit==1.2.0
+django_recaptcha2==1.4.1
+django-allauth==0.41.0
+toml==0.10.0
+hjson==3.0.1
+django-debug-toolbar==2.2
+django-ratelimit==2.0.0
+django-sendfile2==0.5.1
+django-sendfile==0.3.11
+django-pagedown==2.0.3
+django-feedparser==0.2.1
+Whoosh==2.7.4

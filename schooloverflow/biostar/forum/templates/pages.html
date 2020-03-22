@@ -1,0 +1,15 @@
+{% extends "forum_base.html" %}
+{% load static %}
+{% load forum_tags %}
+
+
+{% block headtitle %}
+    {{ tab }}
+{% endblock %}
+
+{% block content %}
+
+    {# Get the static file to serve #}
+    {% markdown_file file_path %}
+
+{% endblock %}
