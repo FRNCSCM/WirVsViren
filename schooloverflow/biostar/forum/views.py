@@ -28,13 +28,16 @@ logger = logging.getLogger('engine')
 
 # Valid post values as they correspond to database post types.
 POST_TYPE_MAPPER = dict(
-    question=Post.QUESTION,
-    job=Post.JOB,
-    tutorial=Post.TUTORIAL,
-    forum=Post.FORUM,
-    blog=Post.BLOG,
-    tool=Post.TOOL,
-    news=Post.NEWS
+    # question=Post.QUESTION,
+    # job=Post.JOB,
+    # tutorial=Post.TUTORIAL,
+    # forum=Post.FORUM,
+    # blog=Post.BLOG,
+    # tool=Post.TOOL,
+    # news=Post.NEWS
+    unterricht = Post.UNTERRICHT,
+    recherche = Post.RECHERCHE,
+    frage = Post.FRAGE
 )
 
 LIMIT_MAP = dict(

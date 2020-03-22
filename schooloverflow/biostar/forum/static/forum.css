@@ -4,10 +4,11 @@
 }
 
 body {
-    background-color: #f8f8f9 !important;
+    /* background-color: #f8f8f9 !important; */
+    background-color: #fcfcfd !important;
     padding-top: 1rem;
     font-family: sans-serif;
-    color: #333;
+    color: #fcfcfd;
     line-height: 1.428571429;
     font-size: 13px;
 }
@@ -60,7 +61,7 @@ body > .widen.container {
 
 #menu-header {
     background: none;
-    background-color: #eff0ef;
+    background-color: #3333;
 }
 
 
@@ -635,7 +636,7 @@ img {
 
 .ui.segment.form-wrap {
     box-shadow: none;
-    background: #f9f6f4;
+    background: #f7f7f7;
     overflow-wrap: break-word;
 }
 

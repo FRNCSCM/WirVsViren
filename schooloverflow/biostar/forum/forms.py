@@ -55,9 +55,12 @@ class PostLongForm(forms.Form):
     choices = [opt for opt in Post.TYPE_CHOICES]
 
     mapper = {
-              Post.QUESTION: "Ask a question", Post.TUTORIAL:"Share a Tutorial",
-              Post.JOB: "Post a Job Opening", Post.FORUM: "Start a Discussion",
-              Post.TOOL: "Share a Tool", Post.NEWS: "Announce News"
+                #   Post.QUESTION: "Ask a question", Post.TUTORIAL:"Share a Tutorial",
+                #   Post.JOB: "Post a Job Opening", Post.FORUM: "Start a Discussion",
+                #   Post.TOOL: "Share a Tool", Post.NEWS: "Announce News"
+                Post.UNTERRICHT: "Eure Unterrichtsunterlagen",
+                Post.RECHERCHE: "Eure Recherche und Web Artikel",
+                Post.FRAGE: "Poste deine Frage an die Klasse"
               }
 
     choices = filter(lambda opt: (opt[1] in settings.ALLOWED_POST_TYPES) if settings.ALLOWED_POST_TYPES else
@@ -71,15 +74,16 @@ class PostLongForm(forms.Form):
     else:
         type_choices = choices
 
-    post_type = forms.IntegerField(label="Post Type",
+    post_type = forms.IntegerField(label="Art des Eintrags",
                                    widget=forms.Select(choices=type_choices, attrs={'class': "ui dropdown"}),
-                                   help_text="Select a post type.")
-    title = forms.CharField(label="Post Title", max_length=200, min_length=2,
+                                   help_text="Wähle zwischen Unterrichts-Stoff, Recherche Material oder Frage.")
+    title = forms.CharField(label="Überschrift", max_length=200, min_length=2,
                             validators=[valid_title, english_only],
-                            help_text="Enter a descriptive title to promote better answers.")
-    tag_val = forms.CharField(label="Post Tags", max_length=50, required=True, validators=[valid_tag],
+                            help_text="Gebe dem Eintrag eine gute Überschrift, um mehr Antworten zu erhalten.")
+    tag_val = forms.CharField(label="Tag deinen Eintrag", max_length=50, required=True, validators=[valid_tag],
                               help_text="""
-                              Create a new tag by typing a word then adding a comma or press ENTER or SPACE.
+                              Erstelle einen neuen Tag in dem du ein Wort eintippst und dann ENTER or SPACE drückst. 
+                              Oder verwende vorhandene Tags.
                               """,
                               widget=forms.HiddenInput())
 

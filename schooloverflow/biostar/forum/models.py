@@ -71,16 +71,19 @@ class Post(models.Model):
     STATUS_CHOICES = [(PENDING, "Pending"), (OPEN, "Open"), (OFFTOPIC, "Off topic"), (DELETED, "Deleted")]
 
     # Question types. Answers should be listed before comments.
-    QUESTION, ANSWER, JOB, FORUM, PAGE, BLOG, COMMENT, DATA, TUTORIAL, BOARD, TOOL, NEWS = range(12)
+    # QUESTION, ANSWER, JOB, FORUM, PAGE, BLOG, COMMENT, DATA, TUTORIAL, BOARD, TOOL, NEWS = range(12)
+    UNTERRICHT, RECHERCHE, FRAGE = range(3)
 
     # Valid post types.
     TYPE_CHOICES = [
-        (QUESTION, "Question"), (ANSWER, "Answer"), (COMMENT, "Comment"),
-        (JOB, "Job"), (FORUM, "Forum"), (TUTORIAL, "Tutorial"),
-        (DATA, "Data"), (PAGE, "Page"), (TOOL, "Tool"), (NEWS, "News"),
-        (BLOG, "Blog"), (BOARD, "Bulletin Board")
+        (UNTERRICHT, "Unterricht"), (RECHERCHE, "Recherche"), (FRAGE, "Frage")
+        # (QUESTION, "Question"), (ANSWER, "Answer"), (COMMENT, "Comment"),
+        # (JOB, "Job"), (FORUM, "Forum"), (TUTORIAL, "Tutorial"),
+        # (DATA, "Data"), (PAGE, "Page"), (TOOL, "Tool"), (NEWS, "News"),
+        # (BLOG, "Blog"), (BOARD, "Bulletin Board")
     ]
-    TOP_LEVEL = {QUESTION, JOB, FORUM, BLOG, TUTORIAL, TOOL, NEWS}
+    #TOP_LEVEL = {QUESTION, JOB, FORUM, BLOG, TUTORIAL, TOOL, NEWS}
+    TOP_LEVEL = {UNTERRICHT, RECHERCHE, FRAGE}
 
     # Possile spam states.
     SPAM, NOT_SPAM, DEFAULT = range(3)
