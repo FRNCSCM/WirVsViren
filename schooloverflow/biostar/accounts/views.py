@@ -30,7 +30,7 @@ from .util import now, get_uuid
 
 logger = logging.getLogger('engine')
 
-
+@login_required
 def edit_profile(request):
     if request.user.is_anonymous:
         messages.error(request, "Must be logged in to edit profile")
@@ -133,7 +133,7 @@ def message_list(request):
     context = dict(tab="messages", all_messages=msgs)
     return render(request, "message_list.html", context)
 
-
+@login_required
 def user_profile(request, uid):
     profile = Profile.objects.filter(uid=uid).first()
 
@@ -155,7 +155,7 @@ def user_profile(request, uid):
 
     return render(request, "accounts/user_profile.html", context)
 
-
+@login_required
 def toggle_notify(request):
     if request.user.is_anonymous:
         messages.error(request, "Must be logged in to edit profile")
@@ -223,7 +223,7 @@ def debug_user(request):
 
     return redirect("/")
 
-
+@login_required
 def user_logout(request):
     if request.method == "POST":
 

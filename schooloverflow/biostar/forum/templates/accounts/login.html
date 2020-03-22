@@ -5,32 +5,6 @@
 
 {% block content %}
 
-    {% if  social_login %}
-        <div class="ui segment inputcolor socialbox">
-            <div class="ui header">
-                <i class="universal access icon"></i> Automatic Login
-            </div>
-
-            <p>
-                Click the link below to log in or sign up automatically:
-            </p>
-
-           <div class="ui large relaxed icon list">
-                {% for provider in social_login.iterator %}
-                    <a class="item" href="{% provider_login_url provider.provider %}">
-                        <i class="{{ provider.name|lower }} large icon"></i>
-                        <div class="middle aligned content"> {{ provider.name|title }}</div>
-
-                    </a>
-                {% endfor %}
-            </div>
-
-            <p>
-                Social login is used for authentication only.
-            </p>
-        </div>
-    {% endif %}
-
     <form class="ui form" method="post" action="{% url 'login' %}">
 
         <div class="ui segment inputcolor socialbox">

@@ -7,7 +7,7 @@ from biostar.planet.settings import *
 # Django debug flag.
 DEBUG = True
 
-SITE_NAME = 'Biostar Forum'
+SITE_NAME = 'SchoolOverflow'
 
 # Site settings.
 POSTS_PER_PAGE = 40

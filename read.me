@@ -1,0 +1,29 @@
+# Run Forum
+
+Activate the engine virtual enviorment.
+
+conda activate engine
+Migrate the forum app by executing the command:
+
+python manage.py migrate --settings biostar.forum.settings
+Collect static files for the forum app by executing the command:
+
+python manage.py collectstatic --noinput -v 0 --settings biostar.forum.settings
+There is a Makefile command that migrates and collects static files in one shot.
+
+make forum init  # Migrate and collect static files. 
+A database has now been created and the static files can be found in biostar-central/export/static/
+
+To ensure installation and migration was successful, run a test by executing the command:
+
+make forum test  # Run tests. 
+
+# Start a local server
+
+Activate the engine virtual enviorment.
+
+$ conda activate engine
+Enter the command make forum serve to start a local server.
+
+make forum serve    # Start local server
+The site is now available at http://127.0.0.1:8000/.

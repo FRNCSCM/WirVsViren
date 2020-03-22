@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-{% load socialaccount %}
 {% load accounts_tags %}
 <head>
     <meta charset="UTF-8">
@@ -9,39 +8,6 @@
 <body>
 <h2>Please log in</h2>
 <p>
-
-    {% if  social_login %}
-
-{% if messages %}
-    <ul>
-        {% for message in messages %}
-            <li>{{ message }}</li>
-        {% endfor %}
-    </ul>
-{% endif %}
-
-
-            <p>
-                Click the link below to log in or sign up automatically:
-            </p>
-
-                <ul>
-                {% for provider in social_login.iterator %}
-                    <li>
-                    <a href="{% provider_login_url provider.provider %}">
-                        {{ provider.name|title }}
-
-                    </a>
-                    </li>
-                {% endfor %}
-                </ul>
-
-            <p>
-                Social login is used for authentication only.
-            </p>
-
-    {% endif %}
-
 
     <form action="{% url 'login' %}" method="post" >
         {% if form.errors %}

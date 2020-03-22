@@ -100,13 +100,13 @@ class Profile(models.Model):
     website = models.URLField(default="", max_length=255, blank=True)
 
     # Google scholar ID
-    scholar = models.CharField(default="", max_length=255, blank=True)
+    #scholar = models.CharField(default="", max_length=255, blank=True)
 
     # User reputation score.
     score = models.IntegerField(default=0, db_index=True)
 
     # Twitter ID
-    twitter = models.CharField(default="", max_length=255, blank=True)
+    #twitter = models.CharField(default="", max_length=255, blank=True)
 
     # This field is used to select content for the user.
     my_tags = models.CharField(default="", max_length=MAX_TEXT_LEN, blank=True)
