@@ -39,21 +39,20 @@ class ProfileManager(models.Manager):
 
 class Profile(models.Model):
     NEW, TRUSTED, SUSPENDED, BANNED, SPAMMER = range(5)
-    STATE_CHOICES = [(NEW, "New"), (TRUSTED, "Active"), (SPAMMER, "Spammer"),
-                     (SUSPENDED, "Suspended"), (BANNED, "Banned")]
+    STATE_CHOICES = [(NEW, "Neu"), (TRUSTED, "Aktiv"), (SPAMMER, "Spammer"),
+                     (SUSPENDED, "Unaktiv"), (BANNED, "Banned")]
     state = models.IntegerField(default=NEW, choices=STATE_CHOICES, db_index=True)
 
-    READER, MODERATOR, MANAGER, BLOGGER = range(4)
+    SCHUELER, LEHRER, MANAGER = range(3)
     ROLE_CHOICES = [
-        (READER, "Reader"), (MODERATOR, "Moderator"), (MANAGER, "Admin"),
-        (BLOGGER, "Blog User")
+        (SCHUELER, "Schüler"), (LEHRER, "Lehrer"), (MANAGER, "Admin")
     ]
 
     NO_DIGEST, DAILY_DIGEST, WEEKLY_DIGEST, MONTHLY_DIGEST, ALL_MESSAGES = range(5)
 
-    DIGEST_CHOICES = [(NO_DIGEST, 'Never'), (DAILY_DIGEST, 'Daily'),
-                      (WEEKLY_DIGEST, 'Weekly'), (MONTHLY_DIGEST, 'Monthly'),
-                      (ALL_MESSAGES, "Email for every new thread (mailing list mode)")
+    DIGEST_CHOICES = [(NO_DIGEST, 'Nie'), (DAILY_DIGEST, 'Täglich'),
+                      (WEEKLY_DIGEST, 'Wöchentlich'), (MONTHLY_DIGEST, 'Monatlich'),
+                      (ALL_MESSAGES, "Email für jeden neuen Eintrag (mailing list mode)")
                       ]
     # Subscription to daily and weekly digests.
     digest_prefs = models.IntegerField(choices=DIGEST_CHOICES, default=WEEKLY_DIGEST)
@@ -82,7 +81,7 @@ class Profile(models.Model):
     max_upload_size = models.IntegerField(default=0)
 
     # The role of the user.
-    role = models.IntegerField(default=READER, choices=ROLE_CHOICES)
+    role = models.IntegerField(default=SCHUELER, choices=ROLE_CHOICES)
 
     # The date the user last logged in.
     last_login = models.DateTimeField(null=True, max_length=255, db_index=True)
@@ -173,12 +172,12 @@ class Profile(models.Model):
     @property
     def is_moderator(self):
         # Managers can moderate as well.
-        return self.role == self.MODERATOR or self.role == self.MANAGER or self.user.is_staff or self.user.is_superuser
+        return self.role == self.LEHRER or self.role == self.MANAGER or self.user.is_staff or self.user.is_superuser
 
     @property
     def trusted(self):
         return (self.user.is_staff or self.state == self.TRUSTED or
-                self.role == self.MODERATOR or self.role == self.MANAGER or self.user.is_superuser)
+                self.role == self.LEHRER or self.role == self.MANAGER or self.user.is_superuser)
 
     @property
     def is_manager(self):

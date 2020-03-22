@@ -37,7 +37,7 @@ def edit_profile(request):
         return redirect("/")
     user = request.user
     initial = dict(username=user.username, email=user.email, name=user.profile.name,location=user.profile.location,
-                   website=user.profile.website, twitter=user.profile.twitter, scholar=user.profile.scholar,
+                   website=user.profile.website, #twitter=user.profile.twitter, scholar=user.profile.scholar,
                    text=user.profile.text, my_tags=user.profile.my_tags, message_prefs=user.profile.message_prefs,
                    email_verified=user.profile.email_verified, watched_tags=user.profile.watched_tags)
 
@@ -56,8 +56,8 @@ def edit_profile(request):
                                                      watched_tags=form.cleaned_data['watched_tags'],
                                                      location=form.cleaned_data['location'],
                                                      website=form.cleaned_data['website'],
-                                                     twitter=form.cleaned_data['twitter'],
-                                                     scholar=form.cleaned_data['scholar'],
+                                                     #twitter=form.cleaned_data['twitter'],
+                                                     #scholar=form.cleaned_data['scholar'],
                                                      text=form.cleaned_data["text"],
                                                      my_tags=form.cleaned_data['my_tags'],
                                                      message_prefs=form.cleaned_data["message_prefs"],

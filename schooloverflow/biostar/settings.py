@@ -82,7 +82,7 @@ MIDDLEWARE = [
 # Site specific information
 SITE_ID = 1
 SITE_DOMAIN = "localhost"
-SITE_NAME = "Biostar Engine"
+SITE_NAME = "SchoolOverflow"
 
 # Deployment specific parameters.
 PROTOCOL = "http"

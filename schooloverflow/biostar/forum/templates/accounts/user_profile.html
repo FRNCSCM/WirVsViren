@@ -85,7 +85,7 @@
                         <td>{{ target.profile.date_joined|time_ago }}</td>
                     </tr>
 
-                    {% if target.profile.twitter %}
+                    <!-- {% if target.profile.twitter %}
                         <tr>
                             <td>Twitter:</td>
                             <td>
@@ -93,9 +93,9 @@
                                         class="twitter icon"></i>{{ target.profile.twitter }}</a>
                             </td>
                         </tr>
-                    {% endif %}
+                    {% endif %} -->
 
-                    {% if target.profile.scholar %}
+                    <!-- {% if target.profile.scholar %}
                         <tr>
                             <td>Google Scholar:</td>
                             <td>
@@ -103,7 +103,7 @@
                                         class="book icon"></i>{{ target.profile.scholar }}</a>
                             </td>
                         </tr>
-                    {% endif %}
+                    {% endif %} -->
                     {% if target == request.user %}
                         <tr>
                             <td>Notifications:</td>

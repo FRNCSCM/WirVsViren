@@ -94,9 +94,10 @@ def validate_tags(tags):
 
 class EditProfile(forms.Form):
     name = forms.CharField(label='Name', max_length=100, required=True)
+    role = forms.CharField(label='Rolle', max_length=100, required=True)
     email = forms.CharField(label='Email', max_length=100, required=True)
-    username = forms.CharField(label="Handler", max_length=100, required=True)
-    location = forms.CharField(label="Location", max_length=100, required=False)
+    username = forms.CharField(label="Username", max_length=100, required=True)
+    location = forms.CharField(label="Stadt", max_length=100, required=False)
     website = forms.URLField(label="Website", max_length=225, required=False)
     #twitter = forms.CharField(label="Twitter Id", max_length=100, required=False)
     #scholar = forms.CharField(label="Scholar", max_length=100, required=False)

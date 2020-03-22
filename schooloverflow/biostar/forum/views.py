@@ -202,6 +202,7 @@ def post_list(request, show=None, cache_key='', extra_context=dict()):
     """
     # The user performing the request.
     user = request.user
+    print(user)
 
     # Parse the GET parameters for filtering information
     page = request.GET.get('page', 1)
@@ -328,7 +329,7 @@ def mytags(request):
 
     return post_list(request=request, show=MYTAGS, cache_key=MYTAGS_CACHE_KEY)
 
-
+@authenticated
 def community_list(request):
     users = User.objects.select_related("profile")
     page = request.GET.get("page", 1)

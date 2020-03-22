@@ -13,6 +13,7 @@ forum_patterns = [
 
     # Main entry. Post listing.
     path('', views.latest, name='post_list'),
+    path('admin/', admin.site.urls, name='django_admin'),
 
     path(r'pages/<str:fname>/', views.pages, name='pages'),
 

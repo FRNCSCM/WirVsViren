@@ -2,6 +2,7 @@
 from django.contrib import admin
 from biostar.forum.models import Post, Subscription, Vote
 
+admin.site.site_header = 'SchoolOverflow Admin'
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
