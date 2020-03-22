@@ -240,7 +240,7 @@ def post_list(request, show=None, cache_key='', extra_context=dict()):
     # Render the page.
     return render(request, template_name="post_list.html", context=context)
 
-@login_required
+
 def latest(request):
     show = request.GET.get("type", "") or LATEST
     return post_list(request, show=show)
@@ -271,7 +271,7 @@ def myvotes(request):
     context = dict(votes=votes, page=page, tab='myvotes')
     return render(request, template_name="votes_list.html", context=context)
 
-@login_required
+
 def tags_list(request):
     """
     Show posts by user
@@ -328,7 +328,7 @@ def mytags(request):
 
     return post_list(request=request, show=MYTAGS, cache_key=MYTAGS_CACHE_KEY)
 
-@login_required
+
 def community_list(request):
     users = User.objects.select_related("profile")
     page = request.GET.get("page", 1)

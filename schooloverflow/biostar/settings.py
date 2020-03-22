@@ -82,7 +82,7 @@ MIDDLEWARE = [
 # Site specific information
 SITE_ID = 1
 SITE_DOMAIN = "localhost"
-SITE_NAME = "SchoolOverflow"
+SITE_NAME = "Biostar Engine"
 
 # Deployment specific parameters.
 PROTOCOL = "http"
@@ -159,7 +159,7 @@ USE_L10N = True
 USE_TZ = True
 
 # Configure language detection
-LANGUAGE_DETECTION = ['de']
+LANGUAGE_DETECTION = ['en']
 
 # The static URL start.
 STATIC_URL = '/static/'

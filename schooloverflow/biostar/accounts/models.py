@@ -43,9 +43,10 @@ class Profile(models.Model):
                      (SUSPENDED, "Suspended"), (BANNED, "Banned")]
     state = models.IntegerField(default=NEW, choices=STATE_CHOICES, db_index=True)
 
-    SCHUELER, LEHRER, MANAGER = range(3)
+    READER, MODERATOR, MANAGER, BLOGGER = range(4)
     ROLE_CHOICES = [
-        (SCHUELER, "Schueler"), (LEHRER, "Lehrer"), (MANAGER, "Admin")
+        (READER, "Reader"), (MODERATOR, "Moderator"), (MANAGER, "Admin"),
+        (BLOGGER, "Blog User")
     ]
 
     NO_DIGEST, DAILY_DIGEST, WEEKLY_DIGEST, MONTHLY_DIGEST, ALL_MESSAGES = range(5)
@@ -81,7 +82,7 @@ class Profile(models.Model):
     max_upload_size = models.IntegerField(default=0)
 
     # The role of the user.
-    role = models.IntegerField(default=SCHUELER, choices=ROLE_CHOICES)
+    role = models.IntegerField(default=READER, choices=ROLE_CHOICES)
 
     # The date the user last logged in.
     last_login = models.DateTimeField(null=True, max_length=255, db_index=True)
@@ -172,12 +173,12 @@ class Profile(models.Model):
     @property
     def is_moderator(self):
         # Managers can moderate as well.
-        return self.role == self.LEHRER or self.role == self.MANAGER or self.user.is_staff or self.user.is_superuser
+        return self.role == self.MODERATOR or self.role == self.MANAGER or self.user.is_staff or self.user.is_superuser
 
     @property
     def trusted(self):
         return (self.user.is_staff or self.state == self.TRUSTED or
-                self.role == self.LEHRER or self.role == self.MANAGER or self.user.is_superuser)
+                self.role == self.MODERATOR or self.role == self.MANAGER or self.user.is_superuser)
 
     @property
     def is_manager(self):
