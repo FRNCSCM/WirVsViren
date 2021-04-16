@@ -6,7 +6,7 @@ django_recaptcha2==1.4.1
 django-allauth==0.41.0
 toml==0.10.0
 hjson==3.0.1
-django-debug-toolbar==2.2
+django-debug-toolbar==2.2.1
 django-ratelimit==2.0.0
 django-sendfile2==0.5.1
 django-sendfile==0.3.11
