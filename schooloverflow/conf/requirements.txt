@@ -32,7 +32,7 @@ rjsmin==1.1.0
 setuptools
 six==1.14.0
 sqlparse==0.3.0
-urllib3==1.25.8
+urllib3==1.26.5
 webencodings==0.5.1
 wheel==0.34.1
 Whoosh==2.7.4
