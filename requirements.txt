@@ -8,7 +8,7 @@ toml==0.10.0
 hjson==3.0.1
 django-debug-toolbar==2.2
 django-ratelimit==2.0.0
-django-sendfile2==0.5.1
+django-sendfile2==0.7.0
 django-sendfile==0.3.11
 django-pagedown==2.0.3
 django-feedparser==0.2.1
